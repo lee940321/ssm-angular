@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="app.op.dao.OpTkt4Mapper" >
+  <resultMap id="BaseResultMap" type="app.op.model.OpTkt4" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="date" property="date" jdbcType="VARCHAR" />
+    <result column="fh" property="fh" jdbcType="DOUBLE" />
+    <result column="yql" property="yql" jdbcType="DOUBLE" />
+    <result column="ce1" property="ce1" jdbcType="DOUBLE" />
+    <result column="ce2" property="ce2" jdbcType="DOUBLE" />
+    <result column="ce3" property="ce3" jdbcType="DOUBLE" />
+    <result column="ce4" property="ce4" jdbcType="DOUBLE" />
+    <result column="inSo2" property="inso2" jdbcType="DOUBLE" />
+    <result column="outSo2" property="outso2" jdbcType="DOUBLE" />
+    <result column="shs" property="shs" jdbcType="DOUBLE" />
+    <result column="ph" property="ph" jdbcType="DOUBLE" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, date, fh, yql, ce1, ce2, ce3, ce4, inSo2, outSo2, shs, ph
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="app.op.model.OpTkt4Example" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from op_tkt4
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from op_tkt4
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from op_tkt4
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="app.op.model.OpTkt4Example" >
+    delete from op_tkt4
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="app.op.model.OpTkt4" >
+    insert into op_tkt4 (id, date, fh, 
+      yql, ce1, ce2, ce3, 
+      ce4, inSo2, outSo2, shs, 
+      ph)
+    values (#{id,jdbcType=INTEGER}, #{date,jdbcType=TIMESTAMP}, #{fh,jdbcType=DOUBLE}, 
+      #{yql,jdbcType=DOUBLE}, #{ce1,jdbcType=DOUBLE}, #{ce2,jdbcType=DOUBLE}, #{ce3,jdbcType=DOUBLE}, 
+      #{ce4,jdbcType=DOUBLE}, #{inso2,jdbcType=DOUBLE}, #{outso2,jdbcType=DOUBLE}, #{shs,jdbcType=DOUBLE}, 
+      #{ph,jdbcType=DOUBLE})
+  </insert>
+  <insert id="insertSelective" parameterType="app.op.model.OpTkt4" >
+    insert into op_tkt4
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="date != null" >
+        date,
+      </if>
+      <if test="fh != null" >
+        fh,
+      </if>
+      <if test="yql != null" >
+        yql,
+      </if>
+      <if test="ce1 != null" >
+        ce1,
+      </if>
+      <if test="ce2 != null" >
+        ce2,
+      </if>
+      <if test="ce3 != null" >
+        ce3,
+      </if>
+      <if test="ce4 != null" >
+        ce4,
+      </if>
+      <if test="inso2 != null" >
+        inSo2,
+      </if>
+      <if test="outso2 != null" >
+        outSo2,
+      </if>
+      <if test="shs != null" >
+        shs,
+      </if>
+      <if test="ph != null" >
+        ph,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="date != null" >
+        #{date,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fh != null" >
+        #{fh,jdbcType=DOUBLE},
+      </if>
+      <if test="yql != null" >
+        #{yql,jdbcType=DOUBLE},
+      </if>
+      <if test="ce1 != null" >
+        #{ce1,jdbcType=DOUBLE},
+      </if>
+      <if test="ce2 != null" >
+        #{ce2,jdbcType=DOUBLE},
+      </if>
+      <if test="ce3 != null" >
+        #{ce3,jdbcType=DOUBLE},
+      </if>
+      <if test="ce4 != null" >
+        #{ce4,jdbcType=DOUBLE},
+      </if>
+      <if test="inso2 != null" >
+        #{inso2,jdbcType=DOUBLE},
+      </if>
+      <if test="outso2 != null" >
+        #{outso2,jdbcType=DOUBLE},
+      </if>
+      <if test="shs != null" >
+        #{shs,jdbcType=DOUBLE},
+      </if>
+      <if test="ph != null" >
+        #{ph,jdbcType=DOUBLE},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="app.op.model.OpTkt4Example" resultType="java.lang.Integer" >
+    select count(*) from op_tkt4
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update op_tkt4
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.date != null" >
+        date = #{record.date,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.fh != null" >
+        fh = #{record.fh,jdbcType=DOUBLE},
+      </if>
+      <if test="record.yql != null" >
+        yql = #{record.yql,jdbcType=DOUBLE},
+      </if>
+      <if test="record.ce1 != null" >
+        ce1 = #{record.ce1,jdbcType=DOUBLE},
+      </if>
+      <if test="record.ce2 != null" >
+        ce2 = #{record.ce2,jdbcType=DOUBLE},
+      </if>
+      <if test="record.ce3 != null" >
+        ce3 = #{record.ce3,jdbcType=DOUBLE},
+      </if>
+      <if test="record.ce4 != null" >
+        ce4 = #{record.ce4,jdbcType=DOUBLE},
+      </if>
+      <if test="record.inso2 != null" >
+        inSo2 = #{record.inso2,jdbcType=DOUBLE},
+      </if>
+      <if test="record.outso2 != null" >
+        outSo2 = #{record.outso2,jdbcType=DOUBLE},
+      </if>
+      <if test="record.shs != null" >
+        shs = #{record.shs,jdbcType=DOUBLE},
+      </if>
+      <if test="record.ph != null" >
+        ph = #{record.ph,jdbcType=DOUBLE},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update op_tkt4
+    set id = #{record.id,jdbcType=INTEGER},
+      date = #{record.date,jdbcType=TIMESTAMP},
+      fh = #{record.fh,jdbcType=DOUBLE},
+      yql = #{record.yql,jdbcType=DOUBLE},
+      ce1 = #{record.ce1,jdbcType=DOUBLE},
+      ce2 = #{record.ce2,jdbcType=DOUBLE},
+      ce3 = #{record.ce3,jdbcType=DOUBLE},
+      ce4 = #{record.ce4,jdbcType=DOUBLE},
+      inSo2 = #{record.inso2,jdbcType=DOUBLE},
+      outSo2 = #{record.outso2,jdbcType=DOUBLE},
+      shs = #{record.shs,jdbcType=DOUBLE},
+      ph = #{record.ph,jdbcType=DOUBLE}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="app.op.model.OpTkt4" >
+    update op_tkt4
+    <set >
+      <if test="date != null" >
+        date = #{date,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fh != null" >
+        fh = #{fh,jdbcType=DOUBLE},
+      </if>
+      <if test="yql != null" >
+        yql = #{yql,jdbcType=DOUBLE},
+      </if>
+      <if test="ce1 != null" >
+        ce1 = #{ce1,jdbcType=DOUBLE},
+      </if>
+      <if test="ce2 != null" >
+        ce2 = #{ce2,jdbcType=DOUBLE},
+      </if>
+      <if test="ce3 != null" >
+        ce3 = #{ce3,jdbcType=DOUBLE},
+      </if>
+      <if test="ce4 != null" >
+        ce4 = #{ce4,jdbcType=DOUBLE},
+      </if>
+      <if test="inso2 != null" >
+        inSo2 = #{inso2,jdbcType=DOUBLE},
+      </if>
+      <if test="outso2 != null" >
+        outSo2 = #{outso2,jdbcType=DOUBLE},
+      </if>
+      <if test="shs != null" >
+        shs = #{shs,jdbcType=DOUBLE},
+      </if>
+      <if test="ph != null" >
+        ph = #{ph,jdbcType=DOUBLE},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="app.op.model.OpTkt4" >
+    update op_tkt4
+    set date = #{date,jdbcType=TIMESTAMP},
+      fh = #{fh,jdbcType=DOUBLE},
+      yql = #{yql,jdbcType=DOUBLE},
+      ce1 = #{ce1,jdbcType=DOUBLE},
+      ce2 = #{ce2,jdbcType=DOUBLE},
+      ce3 = #{ce3,jdbcType=DOUBLE},
+      ce4 = #{ce4,jdbcType=DOUBLE},
+      inSo2 = #{inso2,jdbcType=DOUBLE},
+      outSo2 = #{outso2,jdbcType=DOUBLE},
+      shs = #{shs,jdbcType=DOUBLE},
+      ph = #{ph,jdbcType=DOUBLE}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

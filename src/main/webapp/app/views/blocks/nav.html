@@ -1,0 +1,104 @@
+<!-- list -->
+<ul class="nav">
+  <li class="hidden-folded padder m-t m-b-sm text-muted text-xs">
+    <span translate="aside.nav.HEADER">导航</span>
+  </li>  
+  <li>
+    <a href class="auto">
+      <span class="pull-right text-muted">
+        <i class="fa fa-fw fa-angle-right text"></i>
+        <i class="fa fa-fw fa-angle-down text-active"></i>
+      </span>
+      <i class="glyphicon glyphicon-th-large icon text-success"></i>
+      <span class="font-bold">Apps</span>
+    </a>
+    <ul class="nav nav-sub dk">
+      <li class="nav-sub-header">
+        <a href>
+          <span>Apps</span>
+        </a>
+      </li>
+      <li ui-sref-active="active">
+        <a ui-sref="app.weather">
+          <span>天气</span>
+        </a>
+      </li>
+    </ul>
+  </li>
+ 
+  <li class="line dk"></li>
+  
+  <li class="hidden-folded padder m-t m-b-sm text-muted text-xs">
+    <span translate="aside.nav.dataMining.DATAMINING">数据挖掘</span>
+  </li>
+  
+  <li ng-class="{active:$state.includes('app.table')}">
+    <a href class="auto">
+      <span class="pull-right text-muted">
+        <i class="fa fa-fw fa-angle-right text"></i>
+        <i class="fa fa-fw fa-angle-down text-active"></i>
+      </span>
+      <i class="glyphicon glyphicon-wrench"></i>
+      <span translate="aside.nav.dataMining.fps_equipment.FPS_EQUIPMENT">设备管理</span>
+    </a>
+    <ul class="nav nav-sub dk">
+      <li class="nav-sub-header">
+        <a href>
+          <span translate="aside.nav.dataMining.fps_equipment.FPS_EQUIPMENT">设备管理</span>
+        </a>
+      </li>
+      <li ui-sref-active="active">
+        <a ui-sref="app.table.static">
+          <span translate="aside.nav.dataMining.fps_equipment.FPS_PLANT">电厂管理</span>
+        </a>
+      </li>
+    </ul>
+  </li>
+  <li ng-class="{active:$state.includes('app.table')}">
+    <a href class="auto">
+      <span class="pull-right text-muted">
+        <i class="fa fa-fw fa-angle-right text"></i>
+        <i class="fa fa-fw fa-angle-down text-active"></i>
+      </span>
+      <i class="glyphicon glyphicon-signal"></i>
+      <span translate="aside.nav.dataMining.fps_corrcoef.FPS_CORRCOEF">相关性分析</span>
+    </a>
+    <ul class="nav nav-sub dk">
+      <li class="nav-sub-header">
+        <a href>
+          <span translate="aside.nav.dataMining.fps_corrcoef.FPS_CORRCOEF">相关性分析</span>
+        </a>
+      </li>
+      <li ui-sref-active="active">
+        <a ui-sref="app.table.static">
+          <span translate="aside.nav.dataMining.fps_corrcoef.FPS_ALL">相关性总览</span>
+        </a>
+      </li>
+    </ul>
+  </li>
+  <li ng-class="{active:$state.includes('app.table')}">
+    <a href class="auto">
+      <span class="pull-right text-muted">
+        <i class="fa fa-fw fa-angle-right text"></i>
+        <i class="fa fa-fw fa-angle-down text-active"></i>
+      </span>
+      <b class="label bg-primary pull-right">2</b>
+      <i class="glyphicon glyphicon-bell"></i>
+      <span translate="aside.nav.dataMining.fps_warning.FPS_WARNING">故障预警</span>
+    </a>
+    <ul class="nav nav-sub dk">
+      <li class="nav-sub-header">
+        <a href>
+          <span translate="aside.nav.dataMining.fps_warning.FPS_WARNING">故障预警</span>
+        </a>
+      </li>
+      <li ui-sref-active="active">
+        <a ui-sref="app.table.static">
+          <b class="label bg-info pull-right">N</b>
+          <span translate="aside.nav.dataMining.fps_warning.FPS_EVENT">预警事件</span>
+        </a>
+      </li>
+    </ul>
+  </li>
+</ul>
+<!-- / list -->

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="app.op.dao.Tkt4Custom" >
+	<resultMap id="BaseResultMap" type="app.op.model.OpTkt4" >
+	    <id column="id" property="id" jdbcType="INTEGER" />
+	    <result column="date" property="date" jdbcType="VARCHAR" />
+	    <result column="fh" property="fh" jdbcType="DOUBLE" />
+	    <result column="yql" property="yql" jdbcType="DOUBLE" />
+	    <result column="ce1" property="ce1" jdbcType="DOUBLE" />
+	    <result column="ce2" property="ce2" jdbcType="DOUBLE" />
+	    <result column="ce3" property="ce3" jdbcType="DOUBLE" />
+	    <result column="ce4" property="ce4" jdbcType="DOUBLE" />
+	    <result column="inSo2" property="inso2" jdbcType="DOUBLE" />
+	    <result column="outSo2" property="outso2" jdbcType="DOUBLE" />
+	    <result column="shs" property="shs" jdbcType="DOUBLE" />
+	    <result column="ph" property="ph" jdbcType="DOUBLE" />
+  	</resultMap>
+  	
+  	<insert id="addDataBatch" useGeneratedKeys="true" parameterType="java.util.List">
+        insert into op_tkt4 (date, fh, 
+	      yql, ce1, ce2, ce3, 
+	      ce4, inSo2, outSo2, shs, 
+	      ph)
+	    values
+        <foreach collection="list" item="item" index="index" separator=",">
+        	 (#{item.date,jdbcType=VARCHAR}, #{item.fh,jdbcType=DOUBLE}, 
+	      #{item.yql,jdbcType=DOUBLE}, #{item.ce1,jdbcType=DOUBLE}, #{item.ce2,jdbcType=DOUBLE}, #{item.ce3,jdbcType=DOUBLE}, 
+	      #{item.ce4,jdbcType=DOUBLE}, #{item.inso2,jdbcType=DOUBLE}, #{item.outso2,jdbcType=DOUBLE}, #{item.shs,jdbcType=DOUBLE}, 
+	      #{item.ph,jdbcType=DOUBLE})
+        </foreach>
+  	</insert>
+  	
+  	<insert id="insert" parameterType="app.op.model.OpTkt4" >
+	    insert into op_tkt4 (date, fh, 
+	      yql, ce1, ce2, ce3, 
+	      ce4, inSo2, outSo2, shs, 
+	      ph)
+	    values (#{date,jdbcType=VARCHAR}, #{fh,jdbcType=DOUBLE}, 
+	      #{yql,jdbcType=DOUBLE}, #{ce1,jdbcType=DOUBLE}, #{ce2,jdbcType=DOUBLE}, #{ce3,jdbcType=DOUBLE}, 
+	      #{ce4,jdbcType=DOUBLE}, #{inso2,jdbcType=DOUBLE}, #{outso2,jdbcType=DOUBLE}, #{shs,jdbcType=DOUBLE}, 
+	      #{ph,jdbcType=DOUBLE})
+  	</insert>
+  	
+  	
+</mapper>
